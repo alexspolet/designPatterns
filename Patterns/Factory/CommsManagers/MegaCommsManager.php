@@ -6,10 +6,12 @@
  * Time: 21:19
  */
 
-namespace Patterns\Factory;
+namespace Patterns\Factory\CommsManagers;
 
 
-use Patterns\Encoders\MegaEncoder;
+use Patterns\Factory\Encoders\MegaEncoder;
+use Patterns\Factory\Capsers\MegaCapser;
+use Patterns\Factory\Encriptors\MegaEncriptor;
 
 class MegaCommsManager extends CommsManager
 {
@@ -22,5 +24,14 @@ class MegaCommsManager extends CommsManager
      public function getEncoder(){
          return new MegaEncoder();
      }
+
+     public function getEncriptor()
+     {
+         return new MegaEncriptor();
+     }
+
+    public function getCapser(){
+        return new  MegaCapser();
+    }
 
 }

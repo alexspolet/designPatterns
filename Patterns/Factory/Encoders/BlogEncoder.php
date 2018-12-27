@@ -6,7 +6,7 @@
  * Time: 21:27
  */
 
-namespace Patterns\Encoders;
+namespace Patterns\Factory\Encoders;
 
 
 class BlogEncoder extends Encoder

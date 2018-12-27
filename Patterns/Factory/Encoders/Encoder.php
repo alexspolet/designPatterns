@@ -6,7 +6,7 @@
  * Time: 21:29
  */
 
-namespace Patterns\Encoders;
+namespace Patterns\Factory\Encoders;
 
 
 abstract class Encoder

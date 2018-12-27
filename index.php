@@ -7,8 +7,8 @@
  */
 
 use Patterns\Singleton;
-use Patterns\Factory\BlogCommsManager;
-use \Patterns\Factory\MegaCommsManager;
+use Patterns\Factory\CommsManagers\BlogCommsManager;
+use Patterns\Factory\CommsManagers\MegaCommsManager;
 
 function __autoload($name){
     require str_replace('\\' , DIRECTORY_SEPARATOR , $name) . '.php';
@@ -21,17 +21,21 @@ $singleton->setValue('surname' , 'Romanov');
 $singleton2 =  Singleton::getInstance();
 //echo  $singleton->getValue('name');
 
-$megaManager = new BlogCommsManager();
+$megaManager = new MegaCommsManager();
 
 echo $megaManager->printStartLine() . '<br>';
 echo $megaManager->getEncoder()->encode() . '<br>';
+echo $megaManager->getEncriptor()->encript() . '<br>';
+echo $megaManager->getCapser()->caps() . '<br>';
+
 echo $megaManager->printEndLine() . '<br>';
 
-$blogManager = new MegaCommsManager();
+$blogManager = new BlogCommsManager();
 
 echo '<hr>';
 
 echo $blogManager->printStartLine() . '<br>';
 echo $blogManager->getEncoder()->encode() . '<br>';
+echo $blogManager->getEncriptor()->encript() . '<br>';
+echo $blogManager->getCapser()->caps() . '<br>';
 echo $blogManager->printEndLine() . '<br>';
-
