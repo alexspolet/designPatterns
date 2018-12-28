@@ -66,3 +66,19 @@ echo '<br>';
 echo $sea->getResource()->getTotal();
 echo '<br>';
 echo $sea2->getResource()->getTotal();
+
+
+echo '<hr>';
+
+use \Patterns\Composite\Unit\Archer;
+use \Patterns\Composite\Unit\LaserCannonUnit;
+
+
+$army = new \Patterns\Composite\Unit\Army([new Archer(), new LaserCannonUnit(), new Archer(), new Archer()]);
+
+var_dump($army);
+
+echo $army->getPower();
+
+echo '<br>';
+echo $army->getDescription();
