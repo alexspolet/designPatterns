@@ -20,7 +20,6 @@ abstract class CommsManager
 
     abstract public function printStartLine();
     abstract public function printEndLine();
-    abstract public function getEncoder();
-    abstract public function getEncriptor();
-    abstract public function getCapser();
+    abstract public function make($type);
+
 }

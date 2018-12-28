@@ -24,9 +24,9 @@ $singleton2 =  Singleton::getInstance();
 $megaManager = new MegaCommsManager();
 
 echo $megaManager->printStartLine() . '<br>';
-echo $megaManager->getEncoder()->encode() . '<br>';
-echo $megaManager->getEncriptor()->encript() . '<br>';
-echo $megaManager->getCapser()->caps() . '<br>';
+echo $megaManager->make(1)->caps() . '<br>';
+echo $megaManager->make(2)->encode() . '<br>';
+echo $megaManager->make(3)->encript() . '<br>';
 
 echo $megaManager->printEndLine() . '<br>';
 
@@ -35,7 +35,7 @@ $blogManager = new BlogCommsManager();
 echo '<hr>';
 
 echo $blogManager->printStartLine() . '<br>';
-echo $blogManager->getEncoder()->encode() . '<br>';
-echo $blogManager->getEncriptor()->encript() . '<br>';
-echo $blogManager->getCapser()->caps() . '<br>';
+echo $blogManager->make(1)->caps() . '<br>';
+echo $blogManager->make(2)->encode() . '<br>';
+echo $blogManager->make(3)->encript() . '<br>';
 echo $blogManager->printEndLine() . '<br>';

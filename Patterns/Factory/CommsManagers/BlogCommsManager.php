@@ -21,16 +21,17 @@ class BlogCommsManager extends CommsManager
     public function printEndLine(){
         return 'blogFormat end';
     }
-    public function getEncoder(){
-        return new BlogEncoder();
-    }
 
-    public function getEncriptor()
-    {
-        return new BlogEncriptor();
-    }
-
-    public function getCapser(){
-        return new  BlogCapser();
+    public function make($type){
+        switch ($type){
+            case self::CAPSER :
+                return new  BlogCapser();
+            case self::ENCODER :
+                return new BlogEncoder();
+            case self::ENCRIPTOR :
+                return new BlogEncriptor();
+            default :
+                return null;
+        }
     }
 }

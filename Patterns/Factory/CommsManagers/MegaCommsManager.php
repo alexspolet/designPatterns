@@ -21,17 +21,17 @@ class MegaCommsManager extends CommsManager
      public function printEndLine(){
          return 'megaFormat end';
      }
-     public function getEncoder(){
-         return new MegaEncoder();
-     }
-
-     public function getEncriptor()
-     {
-         return new MegaEncriptor();
-     }
-
-    public function getCapser(){
-        return new  MegaCapser();
+    public function make($type){
+        switch ($type){
+            case self::CAPSER :
+                return new  MegaCapser();
+            case self::ENCODER :
+                return new MegaEncoder();
+            case self::ENCRIPTOR :
+                return new MegaEncriptor();
+            default :
+                return null;
+        }
     }
 
 }
