@@ -10,6 +10,12 @@ use Patterns\Singleton;
 use Patterns\Factory\CommsManagers\BlogCommsManager;
 use Patterns\Factory\CommsManagers\MegaCommsManager;
 
+
+use Patterns\Prototype\TerrainFactory\TerrainFactory;
+use Patterns\Prototype\Sea;
+use Patterns\Prototype\Forest;
+use Patterns\Prototype\Plain;
+
 function __autoload($name){
     require str_replace('\\' , DIRECTORY_SEPARATOR , $name) . '.php';
 }
@@ -39,3 +45,24 @@ echo $blogManager->make(1)->caps() . '<br>';
 echo $blogManager->make(2)->encode() . '<br>';
 echo $blogManager->make(3)->encript() . '<br>';
 echo $blogManager->printEndLine() . '<br>';
+
+
+echo '<hr>';
+
+$fish = new Sea\Resource\FishResource();
+
+$factory = new TerrainFactory(new Sea\MarsSea( 2 , $fish)  , new Plain\EarthPlain() , new Forest\EarthForest());
+
+echo $factory->getSea()->getResource()->getTotal();
+
+$sea = new Sea\MarsSea(4 , $fish);
+echo '<br>';
+echo $sea->getResource()->getTotal();
+
+
+$sea2 = clone $sea;
+$sea2->getResource()->addValue();
+echo '<br>';
+echo $sea->getResource()->getTotal();
+echo '<br>';
+echo $sea2->getResource()->getTotal();
